@@ -5,21 +5,18 @@ package com.lms.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "users")
-public class Users {
+@Document(collection = "User")
+public class User {
 
 	@Id
 	private String id;
 	private String firstname;
-	private String role;	
+	private Role role;
 	private String lastname;
-	private String Password;
-	@Override
-	public String toString() {
-		return "Users [id=" + id + ", firstname=" + firstname + ", role=" + role + ", lastname=" + lastname
-				+ ", Password=" + Password + ", email=" + email + ", CompanyId=" + CompanyId + ", status=" + status
-				+ "]";
-	}
+	private String password;
+	private String email;
+	private String companyId;
+	private String status;
 	public String getId() {
 		return id;
 	}
@@ -32,10 +29,10 @@ public class Users {
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 	public String getLastname() {
@@ -45,10 +42,10 @@ public class Users {
 		this.lastname = lastname;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 	public String getEmail() {
 		return email;
@@ -57,21 +54,37 @@ public class Users {
 		this.email = email;
 	}
 	public String getCompanyId() {
-		return CompanyId;
+		return companyId;
 	}
 	public void setCompanyId(String companyId) {
-		CompanyId = companyId;
+		this.companyId = companyId;
 	}
 	public String getStatus() {
 		return status;
 	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", firstname=" + firstname + ", role=" + role + ", lastname=" + lastname
+				+ ", password=" + password + ", email=" + email + ", companyId=" + companyId + ", status=" + status
+				+ "]";
+	}
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	private String email;
-	private String CompanyId;
-	private String status;
-     
+	public User(String id, String firstname, Role role, String lastname, String password, String email,
+			String companyId, String status) {
+		super();
+		this.id = id;
+		this.firstname = firstname;
+		this.role = role;
+		this.lastname = lastname;
+		this.password = password;
+		this.email = email;
+		this.companyId = companyId;
+		this.status = status;
+	}
+
+
+
 
 }
-

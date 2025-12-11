@@ -77,9 +77,6 @@ public class CourseController {
 		return courservice.allcoursesforuser(id);
 	}
 	
-	
-	
-	
 	@PutMapping("/inactivate/{id}")
 	public ResponseEntity<ResponseStructure<List<Courses>>> rejectcourses(@PathVariable String id) {
 		log.info("hitting");

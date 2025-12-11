@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.lms.config.ResponseStructure;
+import com.lms.entity.User;
 import com.lms.entity.Users;
 import com.lms.repository.UserRepository;
 import com.lms.service.UserService;
@@ -23,16 +24,17 @@ public class UsersController {
    
 	
 	@PostMapping("/userdetails")
-	public ResponseEntity<ResponseStructure<Users>> saveusers(@RequestBody Users user) {
+	public ResponseEntity<ResponseStructure<Users>> saveusers(@RequestBody User user) {
+
 		return userservice.saveuser(user);
 
 	}
 
-	@PostMapping("/login")
-	public ResponseEntity<ResponseStructure<Users>> loginuser(@RequestBody Users u) {
-		String name = u.getUsername();
-		String password=u.getPassword();
-		return userservice.loginuser(name,password);
+//	@PostMapping("/login")
+//	public ResponseEntity<ResponseStructure<Users>> loginuser(@RequestBody Users u) {
+//		String name = u.getUsername();
+//		String password=u.getPassword();
+//		return userservice.loginuser(name,password);
 //		String name=u.getUsername();
 //		var useroptional=userrepo.findByUsername(name);
 //		if(useroptional.isEmpty())
@@ -43,12 +45,12 @@ public class UsersController {
 //		
 //		String token=jwt.generetatoken(name);
 //		return token;
-	}
+//	}
 
-	@GetMapping("/findalltheusers")
-	public ResponseEntity<ResponseStructure<List<Users>>> findtheuser() {
-		return userservice.findalltheusers();
-
-	}
+//	@GetMapping("/findalltheusers")
+//	public ResponseEntity<ResponseStructure<List<Users>>> findtheuser() {
+//		return userservice.findalltheusers();
+//
+//	}
 
 }
