@@ -30,27 +30,18 @@ public class UsersController {
 
 	}
 
-//	@PostMapping("/login")
-//	public ResponseEntity<ResponseStructure<Users>> loginuser(@RequestBody Users u) {
-//		String name = u.getUsername();
-//		String password=u.getPassword();
-//		return userservice.loginuser(name,password);
-//		String name=u.getUsername();
-//		var useroptional=userrepo.findByUsername(name);
-//		if(useroptional.isEmpty())
-//		{
-//			return "usernot registered";
-//		}
-//		Users users=useroptional.get();
-//		
-//		String token=jwt.generetatoken(name);
-//		return token;
-//	}
+	@PostMapping("/login")
+	public ResponseEntity<ResponseStructure<User>> loginuser(@RequestBody User u) {
+		String name = u.getEmail();
+		String password=u.getPassword();
+		return userservice.loginuser(name, password);
+		
+	}
 
-//	@GetMapping("/findalltheusers")
-//	public ResponseEntity<ResponseStructure<List<Users>>> findtheuser() {
-//		return userservice.findalltheusers();
-//
-//	}
+	@GetMapping("/findalltheusers")
+	public ResponseEntity<ResponseStructure<List<User>>> findtheuser() {
+		return userservice.findallusers();
+
+	}
 
 }

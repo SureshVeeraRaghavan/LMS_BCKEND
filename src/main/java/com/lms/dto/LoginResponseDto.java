@@ -1,23 +1,36 @@
 package com.lms.dto;
 
+import com.lms.entity.Role;
+
 import lombok.Data;
 
 @Data
 public class LoginResponseDto {
 	private String token;
 	private String id;
-	private String user;
-	private String role;
-	private String useremail;
+	private Role role;
+	private String email;
+	private String companyid;
+	private String firstname;
+	
+	
 
 	public LoginResponseDto() {
 	}
 
-	public LoginResponseDto(String token, String id, String user, String role, String useremail) {
+
+
+	public LoginResponseDto(String token, String id,Role role,String email,String companyid,String firstname) {
+		super();
 		this.token = token;
 		this.id = id;
-		this.user = user;
-		this.role = role;
-		this.useremail = useremail;
+		this.role=role;
+		this.email=email;
+		this.companyid=companyid;
+		this.firstname=firstname;
 	}
+
+	
+
+	
 }
