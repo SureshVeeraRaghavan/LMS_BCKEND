@@ -23,9 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import com.drew.imaging.ImageMetadataReader;
@@ -270,7 +268,7 @@ public class CourseService {
 	public ResponseEntity<ResponseStructure<List<Courses>>> findallthecourses() {
 		List<Courses> courses = coursedao.findallcourses();
 		List<CourseDto> coursedto = new ArrayList<>();
-		if (courses != null&&!courses.isEmpty()) {
+		if (courses != null && !courses.isEmpty()) {
 			for (Courses c : courses) {
 				CourseDto cdto = new CourseDto();
 				cdto.setCourseId(c.getCourseId());
@@ -497,7 +495,7 @@ public class CourseService {
 		structure.setStatus(HttpStatus.OK.value());
 		return new ResponseEntity<ResponseStructure<List<Courses>>>(structure, HttpStatus.OK);
 	}
-	
+
 	public ResponseEntity<ResponseStructure<List<Courses>>> rejectthecourse(String id) {
 
 		Courses courses = coursedao.rejectcourse(id);
@@ -516,6 +514,5 @@ public class CourseService {
 		structure.setStatus(HttpStatus.OK.value());
 		return new ResponseEntity<ResponseStructure<List<Courses>>>(structure, HttpStatus.OK);
 	}
-
 
 }

@@ -2,10 +2,15 @@ package com.lms.entity;
 
 
 
+import java.time.Instant;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.CreatedDate;
+
 
 @Document(collection = "User")
+
 public class User {
 
 	@Id
@@ -17,6 +22,9 @@ public class User {
 	private String email;
 	private String companyId;
 	private String status;
+	@CreatedDate
+	private Instant CreatedDate;
+
 	public String getId() {
 		return id;
 	}

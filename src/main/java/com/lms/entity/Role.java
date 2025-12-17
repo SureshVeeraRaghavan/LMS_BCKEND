@@ -5,5 +5,4 @@ public enum Role {
 	    INSTRUCTOR,
 	    COMPANY_ADMIN,
 	    SUPER_ADMIN
-
 }
